@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ShoppingBag, ArrowRight } from 'lucide-react';
+import { LazyImage } from '../components/LazyImage';
 
 const MERCH = [
   { id: 101, name: "Kaus Kopi Tetangga", price: 150000, category: "Apparel", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&auto=format&fit=crop" },
@@ -28,7 +29,12 @@ export function Merchandise() {
             className="brutalist-card flex flex-col overflow-hidden group bg-white"
           >
             <div className="aspect-[3/4] border-b-2 border-brand-black overflow-hidden bg-brand-cream-dark">
-              <img src={item.image} alt={item.name} className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+              <LazyImage
+                src={item.image}
+                alt={item.name}
+                containerClassName="w-full h-full"
+                imageClassName="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+              />
             </div>
             <div className="p-6">
               <span className="text-[10px] font-black uppercase text-brand-black/40 mb-2 block">{item.category}</span>

@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { MapPin, Phone, MessageCircle } from 'lucide-react';
+import { LazyImage } from '../components/LazyImage';
 
 const STORES = [
   {
@@ -46,7 +47,12 @@ export function Locations() {
             className="brutalist-card flex flex-col group h-full"
           >
             <div className="h-48 border-b-2 border-brand-black overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 relative">
-              <img src={store.image} alt={store.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <LazyImage
+                src={store.image}
+                alt={`Foto suasana kedai ${store.name}`}
+                containerClassName="w-full h-full"
+                imageClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
               <div className="absolute top-4 right-4 bg-brand-yellow border-2 border-brand-black px-3 py-1 font-black text-[10px] uppercase shadow-brutalist-sm">
                 {store.status}
               </div>

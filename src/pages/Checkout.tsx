@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Coffee, Trash2, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { LazyImage } from '../components/LazyImage';
 
 export function Checkout() {
   const { cart, totalPrice, updateQuantity, clearCart } = useCart();
@@ -55,7 +56,20 @@ export function Checkout() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Order List */}
           <div className="lg:col-span-2 space-y-6">
-            {cart.length === 0 ? (
+            {isLoading ? (
+              <div className="space-y-6 animate-pulse">
+                {Array.from({ length: 2 }).map((_, index) => (
+                  <div key={index} className="bg-white border-2 border-brand-black p-6 flex flex-col sm:flex-row gap-8 shadow-brutalist-sm">
+                    <div className="w-24 h-24 bg-brand-black/10 rounded" />
+                    <div className="flex-1 space-y-4 py-2">
+                      <div className="h-6 bg-brand-black/10 rounded w-1/2" />
+                      <div className="h-4 bg-brand-black/10 rounded w-1/3" />
+                      <div className="h-10 bg-brand-black/10 rounded" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : cart.length === 0 ? (
               <div className="bg-white border-2 border-brand-black p-12 text-center">
                 <Coffee className="size-16 mx-auto mb-4 opacity-10" />
                 <p className="text-xl font-black italic opacity-20 uppercase">Keranjangmu kosong.</p>
@@ -65,14 +79,19 @@ export function Checkout() {
               cart.map(item => (
                 <div key={item.id} className="bg-white border-2 border-brand-black p-6 flex flex-col sm:flex-row gap-8 shadow-brutalist-sm hover:shadow-brutalist-md transition-all">
                   <div className="w-24 h-24 border-2 border-brand-black flex-shrink-0 bg-brand-cream overflow-hidden">
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                    <LazyImage
+                      src={item.image}
+                      alt={item.name}
+                      containerClassName="w-full h-full"
+                      imageClassName="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex-grow">
                     <div className="flex justify-between items-start mb-2">
                        <h4 className="text-xl font-black uppercase tracking-tight">{item.name}</h4>
                        <span className="text-lg font-black italic">Rp{(item.price * item.quantity).toLocaleString()}</span>
                     </div>
-                    <p className="text-xs font-black uppercase text-brand-black/40 mb-6">{item.category}</p>
+                    <p className="text-xs font-black uppercase text-brand-black/50 mb-6">{item.category}</p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center border-2 border-brand-black bg-white">
                         <button 

@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
 import { ProductCard } from '../components/ProductCard';
 import { heroCoffeeImage, instagramGridImage, aboutStoryImage } from '../assets/images';
+import { LazyImage } from '../components/LazyImage';
+import { LazyImage } from '../components/LazyImage';
 
 const TESTIMONIALS = [
   { name: "Andi Wijaya", role: "Warga Cipete", text: "Kopi Susu Bangga nggak pernah meleset. Rasa konsisten sejak 2015, tempatnya juga asik buat baca buku.", avatar: "https://i.pravatar.cc/150?u=andi" },
@@ -90,10 +92,11 @@ export function Home() {
                 ease: "easeInOut"
               }}
             />
-            <img 
-              src={heroCoffeeImage} 
-              alt="Coffee" 
-              className="w-full aspect-square object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+            <LazyImage
+              src={heroCoffeeImage}
+              alt="Cangkir kopi Kopi Bangga dengan latte art"
+              containerClassName="w-full aspect-square"
+              imageClassName="grayscale-[20%] hover:grayscale-0 transition-all duration-500"
             />
           </motion.div>
           <div className="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 w-32 h-32 md:w-48 md:h-48 bg-brand-yellow rounded-full border-2 md:border-4 border-brand-black flex items-center justify-center p-4 md:p-6 text-center font-black uppercase text-[10px] md:text-sm rotate-[-12deg] shadow-xl z-20">
@@ -139,10 +142,11 @@ export function Home() {
           </div>
           <div className="w-full md:w-1/2 relative mt-8 md:mt-0">
             <div className="aspect-[4/5] border-4 border-brand-black overflow-hidden shadow-brutalist-lg relative group">
-                <img 
-                  src={aboutStoryImage} 
-                  alt="Kisah Bangga"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                <LazyImage
+                  src={aboutStoryImage}
+                  alt="Proses roasting biji kopi di roastery Kopi Bangga"
+                  containerClassName="w-full h-full"
+                  imageClassName="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-brand-yellow/10 mix-blend-overlay pointer-events-none" />
              </div>
@@ -157,7 +161,7 @@ export function Home() {
       <section className="py-20 md:py-24 px-6 sm:px-8 md:px-20 bg-brand-black text-white">
         <div className="text-center mb-12 md:mb-20">
           <h3 className="text-4xl sm:text-5xl font-black uppercase italic tracking-tighter mb-4">ILMU <span className="text-brand-yellow">SEDUH</span> KAMI</h3>
-          <p className="text-white/50 font-medium tracking-widest uppercase text-[10px] md:text-xs">Dari Biji Terbaik Hingga Cangkir Anda</p>
+          <p className="text-white/70 font-medium tracking-widest uppercase text-[10px] md:text-xs">Dari Biji Terbaik Hingga Cangkir Anda</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {[
@@ -213,7 +217,12 @@ export function Home() {
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <img src={TESTIMONIALS[testimonialIndex].avatar} alt={TESTIMONIALS[testimonialIndex].name} className="size-10 md:size-12 rounded-full border-2 border-brand-black" />
+                  <LazyImage
+                  src={TESTIMONIALS[testimonialIndex].avatar}
+                  alt={`Foto profil ${TESTIMONIALS[testimonialIndex].name}`}
+                  containerClassName="size-10 md:size-12 rounded-full border-2 border-brand-black overflow-hidden"
+                  imageClassName="object-cover"
+                />
                   <div>
                     <h5 className="font-black uppercase text-[10px] md:text-xs tracking-widest">{TESTIMONIALS[testimonialIndex].name}</h5>
                     <p className="text-[9px] md:text-[10px] font-bold text-brand-black/40">{TESTIMONIALS[testimonialIndex].role}</p>
@@ -243,7 +252,12 @@ export function Home() {
               whileHover={{ scale: 0.95 }}
               className="aspect-square border border-brand-black overflow-hidden relative group cursor-pointer"
             >
-              <img src={img} alt="Instagram" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+              <LazyImage
+                src={img}
+                alt="Foto suasana kedai Kopi Bangga"
+                containerClassName="w-full h-full"
+                imageClassName="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+              />
               <div className="absolute inset-0 bg-brand-yellow/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                  <Instagram className="size-8 text-brand-black" />
               </div>

@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Coffee, Heart, Users, Home } from 'lucide-react';
+import { LazyImage } from '../components/LazyImage';
 
 export function About() {
   return (
@@ -23,11 +24,12 @@ export function About() {
               Kami percaya bahwa kopi bukan sekadar minuman berkafein, melainkan jembatan komunikasi antar manusia. Itulah mengapa kami menyebut kedai kami sebagai wadah 'Kebanggaan'.
             </p>
           </div>
-          <div className="bg-white border-2 border-brand-black p-4 shadow-brutalist-md rotate-2">
-            <img 
-              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" 
-              alt="Barista" 
-              className="w-full grayscale border-2 border-brand-black"
+          <div className="bg-white border-2 border-brand-black p-4 shadow-brutalist-md rotate-2 overflow-hidden">
+            <LazyImage
+              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop"
+              alt="Barista Kopi Bangga sedang menyeduh kopi untuk pelanggan"
+              containerClassName="w-full h-full"
+              imageClassName="w-full grayscale border-2 border-brand-black"
             />
           </div>
         </div>

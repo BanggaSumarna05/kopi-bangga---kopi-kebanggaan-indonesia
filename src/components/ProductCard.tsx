@@ -5,6 +5,7 @@ import { Product } from '../types';
 import { useCart } from '../context/CartContext';
 import { useFavorites } from '../context/FavoritesContext';
 import { useProductModal } from '../context/ProductModalContext';
+import { LazyImage } from './LazyImage';
 
 interface ProductCardProps {
   product: Product;
@@ -26,10 +27,11 @@ export function ProductCard({ product }: ProductCardProps) {
       className="bg-white border-2 border-brand-black shadow-brutalist-sm hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutalist-md transition-all duration-200 flex flex-col group cursor-pointer"
     >
       <div className="relative h-64 border-b-2 border-brand-black overflow-hidden bg-brand-cream">
-        <img 
-          src={product.image} 
-          alt={product.name} 
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        <LazyImage
+          src={product.image}
+          alt={product.name}
+          containerClassName="w-full h-full"
+          imageClassName="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute top-4 left-4 flex gap-2">
           <div className="bg-brand-black text-white px-3 py-1 text-[10px] font-black uppercase">

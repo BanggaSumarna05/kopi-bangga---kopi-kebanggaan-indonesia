@@ -7,6 +7,7 @@ import { CartDrawer } from './CartDrawer';
 import { ProductModal } from './ProductModal';
 import { Toaster } from 'sonner';
 import { logoKopiBangga } from '../assets/images';
+import { LazyImage } from './LazyImage';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
@@ -44,10 +45,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         
         <nav id="nav" className={`transition-all duration-300 px-4 md:px-8 py-2 md:py-4 flex items-center justify-between border-b ${scrolled ? 'bg-brand-cream/95 backdrop-blur-md border-brand-black/20 shadow-sm' : 'bg-transparent border-transparent'}`}>
           <Link to="/" className="group scale-90 sm:scale-100 origin-left">
-            <img 
-              src={logoKopiBangga} 
-              alt="Kopi Bangga Logo" 
-              className="h-14 w-14 md:h-16 md:w-16 object-contain hover:scale-110 hover:rotate-3 transition-all duration-300 mix-blend-multiply drop-shadow-md" 
+            <LazyImage
+              src={logoKopiBangga}
+              alt="Logo Kopi Bangga"
+              containerClassName="h-14 w-14 md:h-16 md:w-16"
+              imageClassName="object-contain hover:scale-110 hover:rotate-3 transition-all duration-300 mix-blend-multiply drop-shadow-md"
             />
           </Link>
 
@@ -109,10 +111,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <footer className="border-t-4 border-brand-yellow pt-10 pb-12 px-6 sm:px-8 md:px-20 bg-brand-cream text-brand-black">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-12 underline decoration-brand-yellow decoration-4 underline-offset-8">
           <Link to="/" className="group inline-block">
-            <img 
-              src={logoKopiBangga} 
-              alt="Kopi Bangga Logo" 
-              className="h-20 md:h-32 w-auto object-contain mix-blend-multiply hover:scale-105 transition-all duration-500" 
+            <LazyImage
+              src={logoKopiBangga}
+              alt="Logo Kopi Bangga"
+              containerClassName="h-20 w-20 md:h-32 md:w-32"
+              imageClassName="object-contain mix-blend-multiply hover:scale-105 transition-all duration-500"
             />
           </Link>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 text-[10px] md:text-xs font-black uppercase tracking-widest w-full md:w-auto">

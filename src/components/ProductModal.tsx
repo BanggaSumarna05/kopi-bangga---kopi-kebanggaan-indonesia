@@ -5,6 +5,7 @@ import { useCart } from '../context/CartContext';
 import { useFavorites } from '../context/FavoritesContext';
 import { useReviews } from '../context/ReviewContext';
 import React, { useState } from 'react';
+import { LazyImage } from './LazyImage';
 
 export function ProductModal() {
   const { selectedProduct, closeModal } = useProductModal();
@@ -60,10 +61,11 @@ export function ProductModal() {
         >
           {/* Image Section */}
           <div className="w-full md:w-1/2 h-64 md:h-auto border-b-4 md:border-b-0 md:border-r-4 border-brand-black relative">
-            <img
+            <LazyImage
               src={selectedProduct.image}
               alt={selectedProduct.name}
-              className="w-full h-full object-cover grayscale-[10%]"
+              containerClassName="w-full h-full"
+              imageClassName="w-full h-full object-cover grayscale-[10%]"
             />
             <div className="absolute top-6 left-6 flex flex-col gap-2">
               <div className="bg-brand-yellow border-2 border-brand-black text-brand-black px-4 py-1 text-xs font-black uppercase shadow-brutalist-sm self-start">

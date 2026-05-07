@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, Minus, Plus, ShoppingBag, Coffee, ArrowRight } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
+import { LazyImage } from './LazyImage';
 
 export function CartDrawer() {
   const { cart, isCartOpen, setIsCartOpen, updateQuantity, totalPrice, totalItems } = useCart();
@@ -46,8 +47,13 @@ export function CartDrawer() {
               ) : (
                 cart.map(item => (
                   <div key={item.id} className="flex gap-6 pb-8 border-b border-brand-black/10">
-                    <div className="w-20 h-20 border-2 border-brand-black flex-shrink-0 bg-white">
-                      <img src={item.image} alt={item.name} className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all" />
+                    <div className="w-20 h-20 border-2 border-brand-black flex-shrink-0 bg-white overflow-hidden">
+                      <LazyImage
+                        src={item.image}
+                        alt={item.name}
+                        containerClassName="w-full h-full"
+                        imageClassName="w-full h-full object-cover grayscale-[30%] transition-all"
+                      />
                     </div>
                     <div className="flex-grow">
                       <div className="flex justify-between items-start mb-1">
