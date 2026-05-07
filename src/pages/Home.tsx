@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Coffee, Clock, MapPin, Star, Instagram, Mail, Sh
 import { Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
 import { ProductCard } from '../components/ProductCard';
+import { heroCoffeeImage, instagramGridImage, aboutStoryImage } from '../assets/images';
 
 const TESTIMONIALS = [
   { name: "Andi Wijaya", role: "Warga Cipete", text: "Kopi Susu Bangga nggak pernah meleset. Rasa konsisten sejak 2015, tempatnya juga asik buat baca buku.", avatar: "https://i.pravatar.cc/150?u=andi" },
@@ -17,7 +18,7 @@ const INSTAGRAM_GRID = [
   "https://images.unsplash.com/photo-1507133750040-4a8f57021571?q=80&w=400&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=400&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=400&auto=format&fit=crop",
-  "/src/assets/images/regenerated_image_1777978824282.png"
+  instagramGridImage
 ];
 
 export function Home() {
@@ -90,7 +91,7 @@ export function Home() {
               }}
             />
             <img 
-              src="/src/assets/images/regenerated_image_1777979626447.png" 
+              src={heroCoffeeImage} 
               alt="Coffee" 
               className="w-full aspect-square object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
             />
@@ -139,7 +140,7 @@ export function Home() {
           <div className="w-full md:w-1/2 relative mt-8 md:mt-0">
             <div className="aspect-[4/5] border-4 border-brand-black overflow-hidden shadow-brutalist-lg relative group">
                 <img 
-                  src="/src/assets/images/regenerated_image_1777989718320.png" 
+                  src={aboutStoryImage} 
                   alt="Kisah Bangga"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />

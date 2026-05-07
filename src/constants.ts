@@ -1,4 +1,11 @@
 import { Product } from './types';
+import {
+  productEsKopiBangga,
+  productColdBrew,
+  productMatcha,
+  productEarlGrey,
+  productIcedChocolate,
+} from './assets/images';
 
 export const PRODUCTS: Product[] = [
   {
@@ -7,7 +14,7 @@ export const PRODUCTS: Product[] = [
     price: 24000,
     description: "The legendary iced coffee milk with palm sugar. A perfect blend of house coffee and creamy milk that makes you proud of local beans.",
     category: "Coffee",
-    image: "/src/assets/images/regenerated_image_1777979714702.png",
+    image: productEsKopiBangga,
     ingredients: ["Arabica Blend", "Fresh Milk", "Liquid Palm Sugar", "Ice"],
     nutritionalInfo: { calories: 180, sugar: "12g", caffeine: "95mg" }
   },
@@ -27,7 +34,7 @@ export const PRODUCTS: Product[] = [
     price: 28000,
     description: "Slow steeped for 12 hours. Pure, crisp, and refreshing with subtle chocolate notes.",
     category: "Coffee",
-    image: "/src/assets/images/regenerated_image_1777988604926.png",
+    image: productColdBrew,
     ingredients: ["Cold Steeped Coffee Bean", "Filtered Water"],
     nutritionalInfo: { calories: 5, sugar: "0g", caffeine: "120mg" }
   },
@@ -37,7 +44,7 @@ export const PRODUCTS: Product[] = [
     price: 35000,
     description: "Premium Uji Matcha with creamy milk. Earthy and naturally sweet.",
     category: "Non-Coffee",
-    image: "/src/assets/images/regenerated_image_1777988609189.png",
+    image: productMatcha,
     ingredients: ["Uji Matcha Powder", "Fresh Milk", "Honey"],
     nutritionalInfo: { calories: 160, sugar: "10g", caffeine: "45mg" }
   },
@@ -67,7 +74,7 @@ export const PRODUCTS: Product[] = [
     price: 20000,
     description: "Fragrant black tea infused with bergamot orange.",
     category: "Non-Coffee",
-    image: "/src/assets/images/regenerated_image_1777981586100.png",
+    image: productEarlGrey,
     ingredients: ["Earl Grey Tea Leaves", "Hot Water"],
     nutritionalInfo: { calories: 0, sugar: "0g", caffeine: "40mg" }
   },
@@ -77,7 +84,7 @@ export const PRODUCTS: Product[] = [
     price: 30000,
     description: "Deep, rich Belgian chocolate blend with cold milk.",
     category: "Non-Coffee",
-    image: "/src/assets/images/regenerated_image_1777981687394.png",
+    image: productIcedChocolate,
     ingredients: ["Belgian Cocoa", "Sugar", "Milk", "Ice"],
     nutritionalInfo: { calories: 220, sugar: "18g", caffeine: "5mg" }
   }
